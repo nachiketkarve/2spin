@@ -73,6 +73,9 @@ Binaries will be created under `build/bin/`.
 make clean
 ```
 
-## Notes
+## Dependencies
 
-- External dependencies such as Eigen and nlohmann/json are expected under `../Libraries/`.
+This project uses the following third-party libraries:
+
+- [Eigen](https://gitlab.com/libeigen/eigen) — linear algebra library
+- [nlohmann/json](https://github.com/nlohmann/json) — JSON serialization library
