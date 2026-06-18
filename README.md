@@ -79,3 +79,5 @@ This project uses the following third-party libraries:
 
 - [Eigen](https://gitlab.com/libeigen/eigen) — linear algebra library
 - [nlohmann/json](https://github.com/nlohmann/json) — JSON serialization library
+
+These dependencies are expected under `../Libraries`.
