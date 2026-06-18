@@ -1,1 +1,15 @@
-data/
+# Build artifacts
+build/
+*.o
+*.out
+
+# Python
+__pycache__/
+*.pyc
+
+# Editor settings
+.vscode/
+
+# Ignore runtime or temporary files
+*.log
+*.tmp

@@ -1,19 +1,43 @@
-all: 2spin cyclicPerturbation spectralFunction classical2spin classicalSpectralFunction
+CXX=g++
+CXXFLAGS=-fopenmp -O3 -I./include -I./../Libraries/eigen
+JSONFLAGS=-I./../Libraries/json/include
+BUILD_DIR=build
+LIB_DIR=$(BUILD_DIR)/lib
+BIN_DIR=$(BUILD_DIR)/bin
 
-2spin: src/2spin.cpp
-	g++ -c ./src/2spin.cpp -fopenmp -o ./lib/2spin.o -O3 -I./include -I./../Libraries/eigen
+.PHONY: all clean
 
-cyclicPerturbation: src/cyclicPerturbation.cpp
-	g++ -c ./src/cyclicPerturbation.cpp -fopenmp -o ./lib/cyclicPerturbation.o -O3 -I./include -I./../Libraries/eigen -I./../Libraries/json/include
-	g++ -o _cyclicPerturbation.out -fopenmp -O3 ./lib/cyclicPerturbation.o ./lib/2spin.o
+all: $(BIN_DIR)/_cyclicPerturbation.out $(BIN_DIR)/_spectralFunction.out $(BIN_DIR)/_classicalSpectralFunction.out
 
-spectralFunction: src/spectralFunction.cpp
-	g++ -c ./src/spectralFunction.cpp -fopenmp -o ./lib/spectralFunction.o -O3 -I./include -I./../Libraries/eigen -I./../Libraries/json/include
-	g++ -o _spectralFunction.out -fopenmp -O3 ./lib/spectralFunction.o ./lib/2spin.o
+$(LIB_DIR):
+mkdir -p $(LIB_DIR)
 
-classical2spin: src/classical2spin.cpp
-	g++ -c ./src/classical2spin.cpp -fopenmp -o ./lib/classical2spin.o -O3 -I./include -I./../Libraries/eigen
+$(BIN_DIR):
+mkdir -p $(BIN_DIR)
 
-classicalSpectralFunction: src/classicalSpectralFunction.cpp
-	g++ -c ./src/classicalSpectralFunction.cpp -fopenmp -o ./lib/classicalSpectralFunction.o -O3 -I./include -I./../Libraries/eigen -I./../Libraries/json/include
-	g++ -o _classicalSpectralFunction.out -fopenmp -O3 ./lib/classicalSpectralFunction.o ./lib/classical2spin.o
+$(LIB_DIR)/2spin.o: src/2spin.cpp | $(LIB_DIR)
+$(CXX) -c $< $(CXXFLAGS) -o $@
+
+$(LIB_DIR)/cyclicPerturbation.o: src/cyclicPerturbation.cpp | $(LIB_DIR)
+$(CXX) -c $< $(CXXFLAGS) $(JSONFLAGS) -o $@
+
+$(BIN_DIR)/_cyclicPerturbation.out: $(LIB_DIR)/cyclicPerturbation.o $(LIB_DIR)/2spin.o | $(BIN_DIR)
+$(CXX) -o $@ -fopenmp -O3 $^
+
+$(LIB_DIR)/spectralFunction.o: src/spectralFunction.cpp | $(LIB_DIR)
+$(CXX) -c $< $(CXXFLAGS) $(JSONFLAGS) -o $@
+
+$(BIN_DIR)/_spectralFunction.out: $(LIB_DIR)/spectralFunction.o $(LIB_DIR)/2spin.o | $(BIN_DIR)
+$(CXX) -o $@ -fopenmp -O3 $^
+
+$(LIB_DIR)/classical2spin.o: src/classical2spin.cpp | $(LIB_DIR)
+$(CXX) -c $< $(CXXFLAGS) -o $@
+
+$(LIB_DIR)/classicalSpectralFunction.o: src/classicalSpectralFunction.cpp | $(LIB_DIR)
+$(CXX) -c $< $(CXXFLAGS) $(JSONFLAGS) -o $@
+
+$(BIN_DIR)/_classicalSpectralFunction.out: $(LIB_DIR)/classicalSpectralFunction.o $(LIB_DIR)/classical2spin.o | $(BIN_DIR)
+$(CXX) -o $@ -fopenmp -O3 $^
+
+clean:
+rm -rf $(BUILD_DIR)
