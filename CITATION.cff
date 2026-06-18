@@ -1,15 +1,25 @@
-# This CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to generate yours today!
-
 cff-version: 1.2.0
-title: 2spin
-message: >-
-  If you use this software, please cite it using the
-  metadata from this file.
+title: "2spin"
+message: "If you use this software, please cite it as below."
 type: software
+
 authors:
   - given-names: Nachiket
     family-names: Karve
     email: nachiket@bu.edu
     affiliation: Boston University
-repository-code: 'https://github.com/nachiketkarve/2spin'
+
+repository-code: "https://github.com/nachiketkarve/2spin"
+url: "https://github.com/nachiketkarve/2spin"
+
+preferred-citation:
+  type: generic
+  authors:
+    - given-names: Nachiket
+      family-names: Karve
+      email: nachiket@bu.edu
+      affiliation: Boston University
+  title: "2spin: Numerical simulations for driven two-spin systems"
+  year: 2026
+  url: "https://github.com/nachiketkarve/2spin"
+  notes: "GitHub repository"
