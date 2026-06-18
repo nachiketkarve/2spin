@@ -39,6 +39,14 @@ $$\lambda(t) = \begin{cases}
 0, & \text{otherwise.}
 \end{cases}$$
 
+These measurements are performed by the `cyclicPerturbation` application.
+
+## Spectral Function
+
+The scaling of the speed-Fisher information with the protocol time is tied to the low-frequency spectral weight of the perturbation. To verify this, the `classicalSpectralFunction` application computes the spectral function of the perturbation, which is the Fourier transform of the correlation function
+
+$$C(t) = {\langle V(t)V(0) \rangle}_c.$$
+
 ## Repository structure
 
 - `src/` - C++ source code
@@ -68,4 +76,3 @@ make clean
 ## Notes
 
 - External dependencies such as Eigen and nlohmann/json are expected under `../Libraries/`.
-- Add Python dependencies to `python/requirements.txt` if required.
