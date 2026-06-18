@@ -12,7 +12,15 @@ and
 
 $$\mathbf{S}_{2} = (S_{2x},S_{2y},S_{2z})$$ 
 
-are spin- $S$ degrees of freedom in the quantum version, and are unit vectors in the classical case. Depending on the choice of parameters $$\mathbf{J} = (J_x,J_y,J_z)$$ and $$\mathbf{A}=(A_x,A_y,A_z)$$, this model can be integrable or chaotic.
+are spin- $S$ degrees of freedom in the quantum version, and are unit vectors in the classical case. Depending on the choice of parameters 
+
+$$\mathbf{J} = (J_x,J_y,J_z)$$ 
+
+and 
+
+$$\mathbf{A}=(A_x,A_y,A_z),$$ 
+
+this model can be integrable or chaotic.
 
 ## Repository structure
 
