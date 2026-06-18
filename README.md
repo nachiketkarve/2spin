@@ -28,7 +28,13 @@ The chaotic/non-chaotic nature of the system is captured by the so called "speed
 
 $$\mathscr{I}_{\bar{v}}(\mu) = \frac{2}{k_B T \bar{v}^2}\langle\Delta E\rangle,$$
 
-where $\bar{v}$ is the average speed of the protocol and $\langle\Delta E\rangle$ is the average heating induced by the perturbation.
+where $\bar{v}$ is the average speed of the protocol and $\langle\Delta E\rangle$ is the average heating induced by the perturbation. Specifically, here we consider the perturbation $\lambda(t) V$, where
+
+$$V = S_{1z}S_{2z}$$
+
+and
+
+$$\lambda(t) = \begin{cases}\frac{\pi\bar{v}}{2\mu}\sin^2 \mu t, & 0 \leq t \leq \frac{2\pi}{\mu} \\0, & \text{otherwise.}\end{cases}$$
 
 ## Repository structure
 
