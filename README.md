@@ -34,7 +34,10 @@ $$V = S_{1z}S_{2z}$$
 
 and
 
-$$\lambda(t) = \begin{cases}\frac{\pi\bar{v}}{2\mu}\sin^2 \mu t, & 0 \leq t \leq \frac{2\pi}{\mu} \\ 0, & \text{otherwise.}\end{cases}$$
+$$\lambda(t) = \begin{cases}
+\frac{\pi\bar{v}}{2\mu}\sin^2 \mu t, & 0 \leq t \leq \frac{2\pi}{\mu} \\ 
+0, & \text{otherwise.}
+\end{cases}$$
 
 ## Repository structure
 
