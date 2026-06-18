@@ -22,6 +22,14 @@ $$\mathbf{A}=(A_x,A_y,A_z),$$
 
 this model can be integrable or chaotic.
 
+## Speed-Fisher Information
+
+The chaotic/non-chaotic nature of the system is captured by the so called "speed-Fisher information". This quantity can be estimated by measuring thermodynamic drag coefficient under a cyclic perturbation of the system. Concretely, in a Gibbs state, the speed-Fisher information is given by
+
+$$\mathscr{I}_{\bar{v}}(\mu) = \frac{2}{k_B T \bar{v}^2}\langle\Delta E\rangle,$$
+
+where $\bar{v}$ is the average speed of the protocol and $\langle\Delta E\rangle$ is the average heating induced by the perturbation.
+
 ## Repository structure
 
 - `src/` - C++ source code
